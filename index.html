@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F6F1E9" />
+  <title>WeSpace — 공간공감</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell" id="appShell">
+    <section id="splash" class="splash">
+      <div class="splash-inner">
+        <img src="assets/logo.png" class="splash-logo" alt="공간공감 로고" />
+        <div class="splash-brand">WeSpace</div>
+        <div class="splash-tagline">Make Space Matter</div>
+      </div>
+      <div class="splash-foot">공간을 잇다</div>
+    </section>
+
+    <header class="topbar" id="topbar">
+      <button class="icon-btn back-btn hidden" id="backBtn" aria-label="뒤로가기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="brand-lockup" data-go="home" aria-label="홈으로">
+        <img src="assets/icon-192.png" alt="공간공감 심볼" class="top-logo" />
+        <div>
+          <strong>WeSpace</strong>
+          <span>공간공감</span>
+        </div>
+      </button>
+      <div class="top-actions">
+        <button class="icon-btn" aria-label="알림">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+        </button>
+        <button class="avatar" data-go="my" aria-label="마이페이지">W</button>
+      </div>
+    </header>
+
+    <div class="screens" id="screens">
+      <!-- HOME -->
+      <section class="screen active" id="screen-home" data-title="홈">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <span class="eyebrow">공간을 잇다</span>
+            <h1>당신의 공간이<br/>더 나은 일상으로.</h1>
+            <p>사진 한 장부터 공간 스캔까지. 나에게 맞는 공간을 설계하고, 직접 걸어보세요.</p>
+            <button class="primary-btn wide" data-go="register">내 공간 바꾸기 <span>→</span></button>
+          </div>
+          <div class="hero-room" aria-hidden="true">
+            <div class="room-window"></div><div class="room-sofa"></div><div class="room-table"></div><div class="room-plant"></div>
+          </div>
+        </div>
+
+        <div class="section-head"><div><span class="section-kicker">MY SPACE</span><h2>최근 공간</h2></div><button class="text-btn">전체보기</button></div>
+        <div class="horizontal-cards">
+          <article class="mini-space-card" data-go="studio"><div class="thumb thumb-living"></div><strong>우리집 거실</strong><span>3D 시안 완료</span></article>
+          <article class="mini-space-card"><div class="thumb thumb-bedroom"></div><strong>안방</strong><span>디자인 검토 중</span></article>
+          <article class="mini-space-card"><div class="thumb thumb-bath"></div><strong>욕실</strong><span>아이디어 탐색</span></article>
+        </div>
+
+        <div class="section-head"><div><span class="section-kicker">COMMUNITY</span><h2>지금 많이 보는 공간</h2></div><button class="text-btn" data-go="community">커뮤니티</button></div>
+        <div class="community-preview">
+          <button class="preview-post" data-go="community"><div class="preview-img p1"></div><div><b>작은 방, 크게 쓰는 법</b><span>피드백 18 · 저장 230</span></div></button>
+          <button class="preview-post" data-go="community"><div class="preview-img p2"></div><div><b>거실 리모델링 고민</b><span>피드백 31 · 저장 124</span></div></button>
+        </div>
+
+        <button class="consult-banner" data-go="experts">
+          <div><span>EXPERT</span><strong>전문가와 함께,<br/>더 특별한 공간을 만들어보세요.</strong></div>
+          <span class="round-arrow">→</span>
+        </button>
+      </section>
+
+      <!-- REGISTER -->
+      <section class="screen" id="screen-register" data-title="공간 등록">
+        <div class="page-intro"><span class="step">STEP 1</span><h1>어떤 공간을<br/>바꾸고 싶으신가요?</h1><p>사진, 공간 스캔, 직접 치수 입력 중 편한 방법을 선택하세요.</p></div>
+
+        <div class="method-stack">
+          <label class="method-card upload-card">
+            <input type="file" id="roomPhoto" accept="image/*" hidden />
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3"/></svg>
+            </div>
+            <div><strong>사진으로 시작</strong><span>지금의 공간을 촬영하거나 사진을 업로드하세요.</span></div><b>›</b>
+          </label>
+          <button class="method-card highlight" data-go="scan">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 3H4v4M16 3h4v4M8 21H4v-4M16 21h4v-4M7 12h10M12 7v10"/></svg>
+            </div>
+            <div><strong>공간 스캔</strong><span>지원 기기에서는 LiDAR·공간 인식으로 벽, 문, 창문과 크기를 파악합니다.</span><small>※ 이 프로토타입에서는 스캔 과정을 시뮬레이션합니다.</small></div><b>›</b>
+          </button>
+          <button class="method-card" id="focusDimensions">
+            <div class="method-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 19L19 4l2 2L6 21zM12 7l2 2M9 10l2 2M15 4l2 2"/></svg>
+            </div>
+            <div><strong>직접 치수 입력</strong><span>가로·세로·높이를 입력하면 더 정확한 3D 공간을 만들 수 있어요.</span></div><b>›</b>
+          </button>
+        </div>
+
+        <div class="photo-preview-wrap hidden" id="photoPreviewWrap"><div class="section-head compact"><h2>업로드한 공간</h2><button class="text-btn" id="removePhoto">삭제</button></div><img id="photoPreview" alt="업로드한 공간 미리보기" /></div>
+
+        <div class="form-card" id="dimensionForm">
+          <div class="section-head compact"><div><h2>공간 치수 <span class="muted">(선택)</span></h2><p>모르면 건너뛰어도 됩니다.</p></div></div>
+          <div class="dimension-grid"><label>가로 <span><input id="roomW" type="number" min="1" step="0.1" placeholder="0.0" /> m</span></label><label>세로 <span><input id="roomD" type="number" min="1" step="0.1" placeholder="0.0" /> m</span></label><label>높이 <span><input id="roomH" type="number" min="1" step="0.1" placeholder="0.0" /> m</span></label></div>
+          <label class="check-row"><input type="checkbox" id="unknownDimensions" /><span class="custom-check"></span><div><strong>치수를 모르겠어요</strong><small>대략적인 추정 크기로 3D 공간을 생성합니다.</small></div></label>
+        </div>
+        <div class="info-note"><b>TIP</b><span>정확한 치수를 입력하면 가구 배치와 동선 확인이 더 정밀해져요.</span></div>
+        <button class="primary-btn wide" data-go="preferences">다음으로 <span>→</span></button>
+      </section>
+
+      <!-- SCAN -->
+      <section class="screen" id="screen-scan" data-title="공간 스캔">
+        <div class="page-intro"><span class="step">SPACE SCAN</span><h1>천천히 공간을<br/>둘러보세요.</h1><p>벽, 문, 창문과 주요 가구를 인식하는 과정을 시뮬레이션합니다.</p></div>
+        <div class="scanner">
+          <div class="scan-grid"></div>
+          <div class="scan-room"><span class="scan-wall w1"></span><span class="scan-wall w2"></span><span class="scan-object o1"></span><span class="scan-object o2"></span></div>
+          <div class="scan-line"></div>
+          <div class="scan-status"><span class="pulse"></span><b id="scanStatus">공간 인식 중</b><small id="scanPercent">0%</small></div>
+        </div>
+        <div class="scan-pills"><span>벽 인식</span><span>문·창문</span><span>가구 윤곽</span><span>대략 치수</span></div>
+        <button class="primary-btn wide" id="startScan">스캔 시작</button>
+        <button class="secondary-btn wide hidden" id="finishScan" data-go="preferences">스캔 결과로 계속하기 →</button>
+      </section>
+
+      <!-- PREFERENCES -->
+      <section class="screen" id="screen-preferences" data-title="디자인 설정">
+        <div class="page-intro"><span class="step">STEP 2</span><h1>어떻게 바꾸고<br/>싶으신가요?</h1><p>공간의 목적과 분위기를 알려주시면 맞춤형 3D 시안을 구성합니다.</p></div>
+        <div class="question-block"><h2>공간 종류</h2><div class="chip-row" data-single="roomType"><button class="chip active">거실</button><button class="chip">침실</button><button class="chip">욕실</button><button class="chip">주방</button><button class="chip">공부방</button><button class="chip">공공공간</button></div></div>
+        <div class="question-block"><h2>공간의 용도</h2><div class="chip-row" data-single="purpose"><button class="chip active">휴식</button><button class="chip">공부</button><button class="chip">수납</button><button class="chip">업무</button><button class="chip">다목적</button></div></div>
+        <div class="question-block"><h2>원하는 분위기</h2><div class="style-grid" data-single="mood"><button class="style-card active"><span class="style-img s-warm"></span><b>따뜻한</b></button><button class="style-card"><span class="style-img s-minimal"></span><b>미니멀</b></button><button class="style-card"><span class="style-img s-modern"></span><b>모던</b></button><button class="style-card"><span class="style-img s-natural"></span><b>자연스러운</b></button><button class="style-card"><span class="style-img s-lux"></span><b>고급스러운</b></button><button class="style-card"><span class="style-img s-vintage"></span><b>빈티지</b></button></div></div>
+        <div class="question-block"><h2>선호 색상</h2><div class="color-row" data-single="color"><button class="color-chip active" style="--c:#E4D1B8" aria-label="샌드 베이지"></button><button class="color-chip" style="--c:#F1EEE7"></button><button class="color-chip" style="--c:#A7A59E"></button><button class="color-chip" style="--c:#748276"></button><button class="color-chip" style="--c:#8C6542"></button><button class="color-chip" style="--c:#72849C"></button></div></div>
+        <div class="question-block"><h2>예산 <span class="muted">(선택)</span></h2><select id="budget"><option>예산을 선택해주세요.</option><option>50만 원 이하</option><option>50–100만 원</option><option>100–300만 원</option><option>300–500만 원</option><option>500만 원 이상</option></select></div>
+        <div class="question-block inline-question"><div><h2>유지할 가구</h2><p>지금 있는 가구 중 남기고 싶은 것이 있나요?</p></div><button class="small-outline" id="keepFurnitureBtn">가구 선택하기</button></div>
+        <div class="question-block inline-question"><div><h2>제거 가능한 가구</h2><p>바꾸고 싶은 가구가 있다면 알려주세요.</p></div><button class="small-outline" id="removeFurnitureBtn">가구 선택하기</button></div>
+        <button class="primary-btn wide" id="generateDesign">3D 시안 만들기 <span>→</span></button>
+      </section>
+
+      <!-- GENERATING -->
+      <section class="screen centered" id="screen-generating" data-title="시안 생성 중">
+        <div class="generating-mark"><img src="assets/icon-192.png" alt=""/><span class="orbit"></span></div>
+        <h1>공간을 설계하고 있어요.</h1><p id="generationText">공간 구조를 분석하는 중...</p><div class="progress"><span id="generationProgress"></span></div><small>프로토타입에서는 약 4초가 소요됩니다.</small>
+      </section>
+
+      <!-- STUDIO -->
+      <section class="screen studio-screen" id="screen-studio" data-title="3D 스튜디오">
+        <div class="studio-top"><div><span class="step">3D STUDIO</span><h1>우리집 거실</h1></div><div class="segmented"><button class="active" id="afterBtn">After</button><button id="beforeBtn">Before</button></div></div>
+        <div class="canvas-wrap">
+          <canvas id="roomCanvas" width="760" height="540"></canvas>
+          <div class="canvas-badge"><span></span> 실시간 3D 탐색</div>
+          <div class="walk-controls">
+            <button data-move="forward">↑</button><div><button data-move="left">↺</button><button data-move="back">↓</button><button data-move="right">↻</button></div>
+          </div>
+          <button class="canvas-help" id="canvasHelp">?</button>
+        </div>
+        <div class="studio-tool-row"><button id="wallTone"><span>◐</span>벽 색상</button><button id="lighting"><span>☼</span>조명</button><button id="resetCamera"><span>⌂</span>시점 초기화</button><button data-go="experts"><span>◇</span>전문가</button></div>
+        <div class="sheet-card">
+          <div class="section-head compact"><div><span class="section-kicker">FURNITURE</span><h2>추천 가구</h2></div><button class="text-btn" data-go="furniture">전체보기</button></div>
+          <div class="filter-row"><button class="filter active">WeSpace 추천</button><button class="filter">전체</button><button class="filter">소파</button><button class="filter">테이블</button><button class="filter">수납</button></div>
+          <div class="furniture-strip" id="studioFurniture"></div>
+        </div>
+        <div class="studio-bottom-actions"><button class="secondary-btn">저장하기</button><button class="primary-btn" data-go="community">커뮤니티에 공유</button></div>
+      </section>
+
+      <!-- COMMUNITY -->
+      <section class="screen" id="screen-community" data-title="커뮤니티">
+        <div class="page-title-row"><div><span class="section-kicker">COMMUNITY</span><h1>공간 피드</h1><p>공간을 보여주고, 서로의 아이디어를 더해보세요.</p></div><button class="round-plus" id="newPostBtn">＋</button></div>
+        <div class="feed-tabs"><button class="active">추천</button><button>최신</button><button>Before & After</button><button>공간 고민</button></div>
+        <div id="communityFeed"></div>
+      </section>
+
+      <!-- FURNITURE -->
+      <section class="screen" id="screen-furniture" data-title="WeSpace 가구">
+        <div class="page-title-row"><div><span class="section-kicker">WESPACE ORIGINAL</span><h1>공간공감 가구</h1><p>WeSpace가 직접 설계한 가구를 3D 공간에 배치해보세요.</p></div><button class="round-plus" id="addFurnitureBtn" title="자체 제작 가구 등록">＋</button></div>
+        <div class="brand-story"><img src="assets/icon-192.png" alt=""/><div><b>공간을 위한 가구, 가구를 위한 공간</b><span>사용자의 동선과 실제 공간 크기를 고려해 추천합니다.</span></div></div>
+        <div class="search-line"><input id="furnitureSearch" placeholder="가구 이름, 용도, 스타일 검색"/><button>⌕</button></div>
+        <div class="category-row"><button class="active">전체</button><button>소파</button><button>테이블</button><button>수납</button><button>의자</button></div>
+        <div class="furniture-grid" id="furnitureGrid"></div>
+        <div class="admin-note"><b>프로토타입 관리자 기능</b><span>우측 상단 ＋ 버튼으로 공간공감의 자체 제작 가구를 직접 추가할 수 있습니다. 실제 서비스에서는 관리자 페이지와 상품 DB에 연결됩니다.</span></div>
+      </section>
+
+      <!-- EXPERTS -->
+      <section class="screen" id="screen-experts" data-title="전문가 상담">
+        <div class="page-title-row"><div><span class="section-kicker">EXPERT MATCH</span><h1>전문가와 연결</h1><p>내 공간과 목적에 맞는 전문가를 선택하세요.</p></div></div>
+        <div class="expert-types"><button class="active">전체</button><button>인테리어</button><button>공간디자인</button><button>정리수납</button><button>조명</button><button>가구</button></div>
+        <div class="expert-note"><b>내 3D 시안을 함께 전달할 수 있어요.</b><span>공간 사진, 치수, 선호 스타일과 현재 시안을 전문가에게 공유해 상담 시간을 줄입니다.</span></div>
+        <div id="expertList"></div>
+      </section>
+
+      <!-- MY -->
+      <section class="screen" id="screen-my" data-title="마이페이지">
+        <div class="profile-card"><div class="profile-avatar">W</div><div><span>WeSpace member</span><h1>나의 공간</h1><p>저장한 공간과 활동을 한곳에서 관리하세요.</p></div></div>
+        <div class="stats"><div><b>3</b><span>내 공간</span></div><div><b>12</b><span>저장</span></div><div><b>7</b><span>피드백</span></div></div>
+        <div class="menu-list"><button data-go="studio"><span>내 3D 공간</span><b>›</b></button><button data-go="community"><span>내 커뮤니티 활동</span><b>›</b></button><button data-go="furniture"><span>찜한 가구</span><b>›</b></button><button data-go="experts"><span>전문가 상담 내역</span><b>›</b></button></div>
+        <div class="brand-footer"><img src="assets/logo.png" alt="공간공감"/><p>공간을 잇다<br/><strong>Make Space Matter</strong></p></div>
+      </section>
+    </div>
+
+    <nav class="bottom-nav" id="bottomNav">
+      <button class="nav-item active" data-go="home" data-nav="home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9h-6v-6H9v6H3z"/></svg><span>홈</span></button>
+      <button class="nav-item" data-go="community" data-nav="community"><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4z"/><path d="M8 9h8M8 13h5"/></svg><span>커뮤니티</span></button>
+      <button class="nav-item" data-go="furniture" data-nav="furniture"><svg viewBox="0 0 24 24"><path d="M5 10h14v8H5zM7 10V7h10v3M7 18v3M17 18v3"/></svg><span>가구</span></button>
+      <button class="nav-item" data-go="experts" data-nav="experts"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/></svg><span>전문가</span></button>
+      <button class="nav-item" data-go="my" data-nav="my"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-4 3-7 7-7s7 3 7 7"/></svg><span>마이</span></button>
+    </nav>
+  </main>
+
+  <!-- MODALS -->
+  <div class="modal-backdrop hidden" id="modalBackdrop"></div>
+
+  <dialog class="modal" id="furnitureModal">
+    <form method="dialog" id="furnitureForm">
+      <div class="modal-head"><div><span class="section-kicker">ADMIN</span><h2>자체 제작 가구 등록</h2></div><button value="cancel" class="dialog-close">×</button></div>
+      <p class="modal-desc">공간공감에서 제작한 가구 정보를 추가하면 추천 카탈로그와 3D 스튜디오에 바로 반영됩니다.</p>
+      <label>제품명<input id="newFurnitureName" required placeholder="예: 여백 모듈 선반"/></label>
+      <div class="two-col"><label>카테고리<select id="newFurnitureCategory"><option>소파</option><option>테이블</option><option>수납</option><option>의자</option></select></label><label>가격<input id="newFurniturePrice" type="number" min="0" required placeholder="690000"/></label></div>
+      <div class="three-col"><label>가로(cm)<input id="newFurnitureW" type="number" value="120" /></label><label>깊이(cm)<input id="newFurnitureD" type="number" value="40" /></label><label>높이(cm)<input id="newFurnitureH" type="number" value="80" /></label></div>
+      <label>스타일·용도 태그<input id="newFurnitureTags" placeholder="미니멀, 거실, 수납"/></label>
+      <button class="primary-btn wide" value="default">가구 등록하기</button>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="suggestionModal">
+    <form method="dialog" id="suggestionForm">
+      <div class="modal-head"><div><span class="section-kicker">SPACE FEEDBACK</span><h2>공간 제안하기</h2></div><button value="cancel" class="dialog-close">×</button></div>
+      <p class="modal-desc">단순 댓글보다 구체적인 공간 개선 아이디어를 남겨보세요.</p>
+      <div class="chip-row" id="suggestionTags"><button type="button" class="chip active">배치</button><button type="button" class="chip">색상</button><button type="button" class="chip">가구</button><button type="button" class="chip">수납</button><button type="button" class="chip">조명</button></div>
+      <label>제안 내용<textarea id="suggestionText" required placeholder="예: 소파를 창가에서 30cm 정도 띄우면 동선이 더 자연스러울 것 같아요."></textarea></label>
+      <button class="primary-btn wide" value="default">제안 등록</button>
+    </form>
+  </dialog>
+
+  <dialog class="modal chat-modal" id="chatModal">
+    <form method="dialog">
+      <div class="modal-head"><div><span class="section-kicker">1:1 CONSULTING</span><h2 id="chatExpertName">전문가 상담</h2></div><button value="cancel" class="dialog-close">×</button></div>
+      <div class="chat-summary"><span>공유 항목</span><b>거실 사진 · 치수 · 따뜻한 스타일 · 3D 시안</b></div>
+      <div class="chat-log" id="chatLog"><div class="bubble expert">안녕하세요. 보내주신 공간과 3D 시안을 확인했어요. 어떤 부분이 가장 고민이신가요?</div><div class="bubble me">수납은 늘리고 싶지만 거실이 답답해 보이지 않았으면 좋겠어요.</div></div>
+      <div class="chat-input"><input id="chatInput" placeholder="메시지를 입력하세요"/><button type="button" id="sendChat">전송</button></div>
+    </form>
+  </dialog>
+
+  <dialog class="modal" id="walkHelpModal">
+    <form method="dialog">
+      <div class="modal-head"><h2>3D 공간 둘러보기</h2><button value="cancel" class="dialog-close">×</button></div>
+      <div class="help-grid"><div><b>모바일</b><span>화면의 ↑ ↓ 버튼으로 이동하고 ↺ ↻ 버튼으로 방향을 바꿉니다.</span></div><div><b>PC</b><span>W/S로 앞뒤 이동, A/D 또는 ←/→로 방향을 바꿀 수 있습니다.</span></div></div>
+      <button class="primary-btn wide" value="default">확인</button>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
